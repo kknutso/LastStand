@@ -11,48 +11,10 @@ public class Defender : MonoBehaviour
     [SerializeField] AudioClip deathSFX;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.75f;
     GameObject currentTarget;
-    Animator animator;
-    Rigidbody2D rb2d;
-
-    void Start()
-    {
-        if (GetComponent<Animator>())
-        {
-            animator = GetComponent<Animator>();
-        }
-        rb2d = GetComponent<Rigidbody2D>();
-    }
 
     void Update()
     {
-        if (this.tag == "Soldier")
-        {
-            UpdateAnimationState();
-            TravelUntilDestination();
-        }
-        else
-        {
-            transform.Translate(Vector2.right * currentSpeed * Time.deltaTime);
-        }
-    }
-
-    void TravelUntilDestination()
-    {
-        rb2d.position = Vector2.MoveTowards(rb2d.position, new Vector2(8, rb2d.position.y), currentSpeed * Time.deltaTime);
-
-        if (rb2d.position.x == 8)
-        {
-            animator.SetBool("isMoving", false);
-        }
-    }
-
-    void UpdateAnimationState()
-    {
-        if(!currentTarget)
-        {
-            animator.SetBool("isAttacking", false);
-            animator.SetBool("isMoving", true);
-        }
+        transform.Translate(Vector2.right * currentSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -70,14 +32,14 @@ public class Defender : MonoBehaviour
         currentSpeed = speed;
     }
 
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
+    }
+
     public void Attack(GameObject target)
     {
         currentTarget = target;
-        if (this.tag == "Soldier")
-        {
-            animator.SetBool("isMoving", false);
-            animator.SetBool("isAttacking", true);
-        }
         StrikeCurrentTarget();
     }
 
@@ -95,6 +57,11 @@ public class Defender : MonoBehaviour
     public int GetGoldCost()
     {
         return goldCost;
+    }
+
+    public GameObject GetCurrentTarget()
+    {
+        return currentTarget;
     }
 
     public void PlayDeathVFX()

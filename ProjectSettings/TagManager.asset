@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Soldier
   - Enemy
-  - Cavalry
+  - Defender
   layers:
   - Default
   - TransparentFX

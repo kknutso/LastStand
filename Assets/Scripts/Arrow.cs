@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour
 {
     [SerializeField] float damage = 5f;
     [SerializeField] float bulletSpeed = 10f;
+    [SerializeField] ParticleSystem fireballHitVFX;
     float xSpeed;
 
     Rigidbody2D rb2d;
@@ -27,9 +28,14 @@ public class Arrow : MonoBehaviour
     {
         if (other.GetComponent<Enemy>())
         {
-            var health = other.GetComponent<Health>();
+            var health = other.GetComponent<Health>(); 
             health.DealDamage(damage);
+            if (fireballHitVFX)
+            {
+                ParticleSystem fireballHit = Instantiate(fireballHitVFX, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
+
 }

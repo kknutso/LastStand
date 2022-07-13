@@ -10,7 +10,7 @@ public class Reaper : MonoBehaviour
 
         if (otherObject.GetComponent<Defender>())
         {
-            if (otherObject.tag == "Soldier")
+            if (otherObject.GetComponent<Soldier>())
             {
                 GetComponent<Enemy>().Attack(otherObject);
             }
@@ -19,5 +19,6 @@ public class Reaper : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("phaseTrigger");
             }
         }
+        else { return; }
     }
 }

@@ -16,12 +16,13 @@ public class Necromancer : MonoBehaviour
     {
         GameObject otherObject = other.gameObject;
 
+        if (!otherObject.GetComponent<Cavalry>())
+        {
+            return;
+        }
         if (otherObject.GetComponent<Defender>())
         {
-            if (otherObject.tag != "Cavalry")
-            {
-                GetComponent<Enemy>().Attack(otherObject);
-            }
+            GetComponent<Enemy>().Attack(otherObject);
         }
     }
 

@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1508481668747190530}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Defender
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   bulletSpeed: 300
+  fireballHitVFX: {fileID: 3351604819379889643, guid: 0a9b8e5b307f79d48895db1b584531ca, type: 3}
 --- !u!50 &3655262641172555839
 Rigidbody2D:
   serializedVersion: 4
@@ -188,7 +189,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010812759, y: -0.0053397417}
+  m_Offset: {x: 0.096057355, y: 0.15603405}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -199,5 +200,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9305301, y: 0.9363744}
+  m_Size: {x: 0.45602667, y: 0.27591693}
   m_EdgeRadius: 0

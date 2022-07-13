@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -68,6 +69,24 @@ public class Enemy : MonoBehaviour
         {
             health.DealDamage(damage);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Defender")
+        {
+            StartCoroutine(FlashRedWhenHurt());
+        }
+    }
+
+    IEnumerator FlashRedWhenHurt()
+    {
+        SpriteRenderer enemySprite;
+        enemySprite = this.GetComponent<SpriteRenderer>();
+
+        enemySprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        enemySprite.color = Color.white;
     }
 
     public void PlayDeathVFX()
