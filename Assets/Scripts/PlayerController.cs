@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //[SerializeField] GameObject arrow;
     Animator animator;
     float yAxis;
     bool canMove = true;
+    bool spacebarPressed = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-
 
     void Update()
     {
@@ -66,17 +65,19 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
+            spacebarPressed = true;
         }
         else
         {
             animator.SetBool("isAttacking", false);
+            spacebarPressed = false;
         }
     }
 
-    /*public void ShootArrow()
+    public bool GetSpacebarPressed()
     {
-        Instantiate(arrow, transform.position, Quaternion.identity);
-    }*/
+        return spacebarPressed;
+    }
 
     public void SetCanMoveToFalse()
     {

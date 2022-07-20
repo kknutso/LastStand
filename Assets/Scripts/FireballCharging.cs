@@ -5,11 +5,39 @@ using UnityEngine.UI;
 
 public class FireballCharging : MonoBehaviour
 {
+    PlayerController playerInput;
+    Slider fireballChargeSlider;
+
+    void Start()
+    {
+        playerInput = FindObjectOfType<PlayerController>();
+        fireballChargeSlider = GetComponent<Slider>();
+    }
+
 
     void Update()
     {
-        GetComponent<Slider>().value = Time.timeSinceLevelLoad;
+        CheckIfSpacebarPressed();
+    }
+
+    void CheckIfSpacebarPressed()
+    {
+        bool playerShooting = playerInput.GetSpacebarPressed();
 
 
+        if(playerShooting)
+        {
+            fireballChargeSlider.value = 0;
+        }
+        else
+        {
+            fireballChargeSlider.value += 1 * Time.deltaTime;
+        }
+    }
+
+    float GetFireballChargeAmount()
+    {
+        float fireballChargeAmount = fireballChargeSlider.value;
+        return fireballChargeAmount;
     }
 }
