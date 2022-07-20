@@ -4,6 +4,7 @@
 
 6/13/22 - v. 0.1.0.0 Initial Commit - Set up the GitHub repo for this project. The inital commit is the game in the state it was when it was submitted to the jam.
 
+7/13/22 - v. 0.1.1.0 Refactors & Improved Player Feedback - Refactored defender script to make it easier to read and separate script functionality to specific defenders. Created better player feedback for player's fireballs. Made the enemies flash red when hurt and purple fireball explosion particle system is played as well.
 
 
 Notes on how to determine version number:
