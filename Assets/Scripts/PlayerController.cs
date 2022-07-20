@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] GameObject arrow;
+    //[SerializeField] GameObject arrow;
     Animator animator;
     float yAxis;
     bool canMove = true;
@@ -73,10 +73,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ShootArrow()
+    /*public void ShootArrow()
     {
         Instantiate(arrow, transform.position, Quaternion.identity);
-    }
+    }*/
 
     public void SetCanMoveToFalse()
     {
