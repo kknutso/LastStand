@@ -7,13 +7,13 @@ public class FireballCharging : MonoBehaviour
 {
     PlayerController playerInput;
     Slider fireballChargeSlider;
+    float fireballChargeAmount;
 
     void Start()
     {
         playerInput = FindObjectOfType<PlayerController>();
         fireballChargeSlider = GetComponent<Slider>();
     }
-
 
     void Update()
     {
@@ -24,9 +24,9 @@ public class FireballCharging : MonoBehaviour
     {
         bool playerShooting = playerInput.GetSpacebarPressed();
 
-
         if(playerShooting)
         {
+            fireballChargeAmount = fireballChargeSlider.value;
             fireballChargeSlider.value = 0;
         }
         else
@@ -37,7 +37,6 @@ public class FireballCharging : MonoBehaviour
 
     float GetFireballChargeAmount()
     {
-        float fireballChargeAmount = fireballChargeSlider.value;
         return fireballChargeAmount;
     }
 }
