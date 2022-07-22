@@ -27,7 +27,7 @@ public class FireballCharging : MonoBehaviour
         if(playerShooting)
         {
             fireballChargeAmount = fireballChargeSlider.value;
-            fireballChargeSlider.value = 0;
+            Invoke("ResetFireballChargeSlider", .25f);
         }
         else
         {
@@ -35,7 +35,12 @@ public class FireballCharging : MonoBehaviour
         }
     }
 
-    float GetFireballChargeAmount()
+    void ResetFireballChargeSlider()
+    {
+        fireballChargeSlider.value = 0;
+    }
+
+    public float GetFireballChargeAmount()
     {
         return fireballChargeAmount;
     }
